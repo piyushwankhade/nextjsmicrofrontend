@@ -1,3 +1,5 @@
-import MyComponent from './components/MyComponent';
+import MyComponent from "./components/MyComponent";
+import TestimonialCarousel from "./components/TestimonialCarousel";
+import HeaderComponent from "./components/headerComponent";
 
-export { MyComponent };
+export { MyComponent, HeaderComponent, TestimonialCarousel };

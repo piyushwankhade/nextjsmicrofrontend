@@ -34,20 +34,22 @@ function _fetchData() {
           return _axios["default"].get("https://dev.tii.cloud.sitefinity.com/api/default/".concat(payload, "?$select=*&$expand=*"));
         case 3:
           response = _context2.sent;
+          console.log("Response:", response);
           return _context2.abrupt("return", response.data.value);
-        case 7:
-          _context2.prev = 7;
+        case 8:
+          _context2.prev = 8;
           _context2.t0 = _context2["catch"](0);
+          console.error("Error fetching data:", _context2.t0);
           return _context2.abrupt("return", []);
-        case 10:
+        case 12:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[0, 7]]);
+    }, _callee2, null, [[0, 8]]);
   }));
   return _fetchData.apply(this, arguments);
 }
-var TestimonialCarousel = function TestimonialCarousel(_ref) {
+var Education = function Education(_ref) {
   var content = _ref.content;
   var _useState = (0, _react.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
@@ -61,7 +63,7 @@ var TestimonialCarousel = function TestimonialCarousel(_ref) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetchData("carousels");
+              return fetchData("educationCenters");
             case 2:
               result = _context.sent;
               setData(result);
@@ -77,80 +79,33 @@ var TestimonialCarousel = function TestimonialCarousel(_ref) {
     }();
     fetchAPI();
   }, []);
-  var _useState3 = (0, _react.useState)(0),
-    _useState4 = _slicedToArray(_useState3, 2),
-    activeIndex = _useState4[0],
-    setActiveIndex = _useState4[1];
-  var handlePrev = function handlePrev() {
-    setActiveIndex(function (prevIndex) {
-      return prevIndex === 0 ? data.length - 1 : prevIndex - 1;
-    });
-  };
-  var handleNext = function handleNext() {
-    setActiveIndex(function (prevIndex) {
-      return prevIndex === data.length - 1 ? 0 : prevIndex + 1;
-    });
-  };
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("h1", null, content ? content : "Default Content"), /*#__PURE__*/_react["default"].createElement("div", {
-    id: "carouselExampleCaptions",
-    className: "carousel slide",
-    "data-bs-touch": "false",
-    "data-bs-ride": "carousel"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "carousel-indicators"
-  }, data.length > 0 && data.map(function (item, index) {
-    return /*#__PURE__*/_react["default"].createElement("button", {
-      key: index,
-      type: "button",
-      "data-bs-target": "#carouselExampleCaptions",
-      "data-bs-slide-to": index,
-      className: index === activeIndex ? "active" : "",
-      "aria-current": index === activeIndex ? "true" : "false",
-      "aria-label": "Slide ".concat(index)
-    });
-  })), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "carousel-inner"
+    className: "row cardList"
   }, data.length > 0 && data.map(function (item, index) {
     return /*#__PURE__*/_react["default"].createElement("div", {
-      key: index,
-      className: "carousel-item ".concat(index === activeIndex ? "active" : "")
+      className: "col-md-4 mb-4",
+      key: index
     }, /*#__PURE__*/_react["default"].createElement("div", {
-      className: "carousel-caption d-none d-md-block"
-    }, /*#__PURE__*/_react["default"].createElement("h3", null, item.Title), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("div", {
-      className: "stars-outer"
+      className: "card h-100"
     }, /*#__PURE__*/_react["default"].createElement("div", {
-      className: "stars-inner",
-      style: {
-        width: "".concat(item.Rating, "%")
+      className: "imageWrapper"
+    }, /*#__PURE__*/_react["default"].createElement("img", {
+      src: "https://dev.tii.cloud.sitefinity.com/" + item.Image[0].Url,
+      alt: item.Image[0].AlternativeText,
+      width: item.Image[0].Width,
+      height: item.Image[0].Height
+    })), /*#__PURE__*/_react["default"].createElement("div", {
+      className: "card-body"
+    }, /*#__PURE__*/_react["default"].createElement("h5", {
+      className: "card-title fw-bold"
+    }, item.Title), /*#__PURE__*/_react["default"].createElement("p", {
+      className: "card-text "
+    }, item.SubTitle), item.DetailPageUrl && /*#__PURE__*/_react["default"].createElement("button", {
+      className: "btn moreLink text-decoration-none",
+      onClick: function onClick() {
+        return handleClick(JSON.parse(item.DetailPageUrl)[0].href);
       }
-    })), /*#__PURE__*/_react["default"].createElement("p", {
-      className: "desc",
-      dangerouslySetInnerHTML: {
-        __html: item.Description
-      }
-    }), /*#__PURE__*/_react["default"].createElement("p", {
-      className: "name"
-    }, item.Name), /*#__PURE__*/_react["default"].createElement("p", {
-      className: "date"
-    }, item.Date)));
-  })), /*#__PURE__*/_react["default"].createElement("button", {
-    className: "carousel-control-prev",
-    type: "button",
-    onClick: handlePrev
-  }, /*#__PURE__*/_react["default"].createElement("span", {
-    className: "carousel-control-prev-icon",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/_react["default"].createElement("span", {
-    className: "visually-hidden"
-  }, "Previous")), /*#__PURE__*/_react["default"].createElement("button", {
-    className: "carousel-control-next",
-    type: "button",
-    onClick: handleNext
-  }, /*#__PURE__*/_react["default"].createElement("span", {
-    className: "carousel-control-next-icon",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/_react["default"].createElement("span", {
-    className: "visually-hidden"
-  }, "Next"))));
+    }, "Read More"))));
+  })));
 };
-var _default = exports["default"] = TestimonialCarousel;
+var _default = exports["default"] = Education;

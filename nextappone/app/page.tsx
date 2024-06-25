@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MyComponent } from 'my-nextjs-package';
 import { TestimonialCarousel } from 'my-nextjs-package';
+import { Education } from 'my-nextjs-package';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       
       {/* <MyComponent /> */}
       <TestimonialCarousel content="Content as props"/>
+      <Education content="Content as props"/>
 
       
     </main>

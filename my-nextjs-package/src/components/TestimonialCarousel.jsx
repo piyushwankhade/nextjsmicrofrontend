@@ -7,15 +7,12 @@ async function fetchData(payload) {
     const response = await axios.get(
       `https://dev.tii.cloud.sitefinity.com/api/default/${payload}?$select=*&$expand=*`
     );
-    console.log("Response:", response);
     return response.data.value;
   } catch (error) {
-    console.error("Error fetching data:", error);
     return [];
   }
 }
 
-//educationCenters
 const TestimonialCarousel = ({ content }) => {
   const [data, setData] = useState([]);
 
@@ -42,7 +39,6 @@ const TestimonialCarousel = ({ content }) => {
 
   return (
     <div>
-      {/* <h1>{data.length > 0 ? JSON.stringify(data) : "Default Content"}</h1> */}
       <h1>{content ? content : "Default Content"}</h1>
       <div
         id="carouselExampleCaptions"

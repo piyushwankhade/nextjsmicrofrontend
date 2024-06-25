@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { MyComponent } from 'my-nextjs-package';
-import { TestimonialCarousel } from 'my-nextjs-package';
-import { Education } from 'my-nextjs-package';
+import { TestimonialCarousel,Education } from "tii-common-components";
+
 
 export default function Home() {
   return (
@@ -15,3 +14,5 @@ export default function Home() {
     </main>
   );
 }
+
+

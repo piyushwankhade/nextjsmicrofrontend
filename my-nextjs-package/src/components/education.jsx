@@ -15,21 +15,22 @@ async function fetchData(payload) {
   }
 }
 
-const Education = ({ content }) => {
-  const [data, setData] = useState([]);
+const Education = ({ title, moduleData }) => {
+  const [data, setData] = useState(moduleData || []);
 
   useEffect(() => {
     const fetchAPI = async () => {
-      const result = await fetchData("educationCenters");
-      setData(result);
+      if (!moduleData) {
+        const result = await fetchData("educationCenters");
+        setData(result);
+      }
     };
-
     fetchAPI();
   }, []);
 
   return (
     <div>
-      <h1>{content ? content : "Default Content"}</h1>
+      <h1>{title ? title : "Default Title"}</h1>
 
       <div className="row cardList">
         {data.length > 0 &&

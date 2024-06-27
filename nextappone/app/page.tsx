@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { TestimonialCarousel,Education } from "tii-common-components";
+import {TestimonialCarousel,Education,Categories}  from "@piyushwankhade/my-nextjs-package";
+//import { TestimonialCarousel, Education } from "my-nextjs-package";
 
 
 export default function Home() {
@@ -7,8 +8,10 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       
       {/* <MyComponent /> */}
-      <TestimonialCarousel content="Content as props"/>
-      <Education content="Content as props"/>
+
+      {/* <Categories/> */}
+      <TestimonialCarousel/>
+      {/* <Education content="Content as props"/> */}
 
       
     </main>
